@@ -1,11 +1,11 @@
 require("dotenv").config();
 require("./db/config");
 const express = require("express");
-const port = process.env.port || 3000;
+const PORT = process.env.PORT;
 const server = express();
 
-server.listen(port, (err) => {
-    err? console.warn(`Hubo un error ${port}`) : console.log (`Servidor corre en http://localhost:${port}`)
+server.listen(PORT, (err) => {
+    err? console.warn(`Hubo un error ${PORT}`) : console.log (`Servidor corre en http://localhost:${PORT}`)
 });
 
 server.use(express.json())
