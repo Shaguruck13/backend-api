@@ -3,6 +3,7 @@ require("./db/config");
 const express = require("express");
 const PORT = process.env.PORT;
 const server = express();
+const cors = require("cors")
 
 server.listen(PORT, (err) => {
     err? console.warn(`Hubo un error ${PORT}`) : console.log (`Servidor corre en http://localhost:${PORT}`)
@@ -11,6 +12,7 @@ server.listen(PORT, (err) => {
 server.use(express.json())
 server.use(express.urlencoded({extended: false}));
 server.use(express.static("storage"))
+server.use(cors())
 
 server.get("/", (req, res) => {
     const content = `
